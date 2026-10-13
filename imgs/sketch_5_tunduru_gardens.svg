@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000">
+  <rect width="1000" height="1000" fill="#f6f5f1"/>
+  <g fill="none" stroke="#2f2f2f" stroke-linecap="round" stroke-linejoin="round" stroke-width="4">
+    <circle cx="500" cy="500" r="260"/>
+    <circle cx="500" cy="500" r="150"/>
+    <path d="M500 250v500M250 500h500M325 325l350 350M675 325L325 675"/>
+    <g>
+      <path d="M200 690c30-80 40-150 20-220s-40-120-100-140"/>
+      <path d="M800 690c-30-80-40-150-20-220s40-120 100-140"/>
+      <path d="M300 820c20-90 40-180 0-260M700 820c-20-90-40-180 0-260"/>
+    </g>
+    <g fill="none">
+      <circle cx="340" cy="340" r="45"/>
+      <circle cx="660" cy="340" r="45"/>
+      <circle cx="340" cy="660" r="45"/>
+      <circle cx="660" cy="660" r="45"/>
+      <path d="M340 290v-40M340 390v40M290 340h-40M390 340h40M660 290v-40M660 390v40M610 340h-40M710 340h40"/>
+    </g>
+  </g>
+  <g fill="#2f2f2f" font-family="Georgia, serif" font-size="30">
+    <text x="500" y="960" text-anchor="middle">Tunduru Gardens</text>
+  </g>
+</svg>

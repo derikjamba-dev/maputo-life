@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000">
+  <rect width="1000" height="1000" fill="#f6f5f1"/>
+  <g fill="none" stroke="#2f2f2f" stroke-linecap="round" stroke-linejoin="round" stroke-width="4">
+    <rect x="250" y="320" width="500" height="420" rx="18"/>
+    <path d="M300 320V210h400v110M330 320V260h340v60M350 500h300M350 620h300M430 320v420M570 320v420"/>
+    <path d="M400 860l100-90 100 90"/>
+    <path d="M500 250V160M450 200h100"/>
+    <path d="M200 760c40-60 80-100 140-130M800 760c-40-60-80-100-140-130"/>
+    <circle cx="180" cy="780" r="40"/>
+    <circle cx="820" cy="780" r="40"/>
+  </g>
+  <g fill="#2f2f2f" font-family="Georgia, serif" font-size="28">
+    <text x="500" y="965" text-anchor="middle">Natural History Museum</text>
+  </g>
+</svg>

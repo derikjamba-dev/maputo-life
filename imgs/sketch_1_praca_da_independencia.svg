@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000">
+  <rect width="1000" height="1000" fill="#f6f5f1"/>
+  <g fill="none" stroke="#2f2f2f" stroke-linecap="round" stroke-linejoin="round" stroke-width="4">
+    <circle cx="500" cy="500" r="250"/>
+    <circle cx="500" cy="500" r="200"/>
+    <circle cx="500" cy="500" r="150"/>
+    <path d="M250 500h500M500 250v500"/>
+    <path d="M350 300c40 50 70 120 80 200s0 170-80 250"/>
+    <path d="M650 300c-40 50-70 120-80 200s0 170 80 250"/>
+    <path d="M330 675h340"/>
+    <path d="M430 385l70-80 70 80"/>
+    <path d="M430 385v120h140V385"/>
+    <path d="M400 505h200"/>
+    <path d="M465 500v80M535 500v80"/>
+    <path d="M450 250l50-60 50 60"/>
+    <path d="M390 270l110-60 110 60"/>
+    <path d="M410 760L500 900l90-140"/>
+    <path d="M475 260v70M525 260v70"/>
+    <path d="M280 380l50-50M720 380l-50-50M280 620l50 50M720 620l-50 50"/>
+  </g>
+  <g fill="#2f2f2f" font-family="Georgia, serif" font-size="29">
+    <text x="500" y="980" text-anchor="middle">Praca da Independencia</text>
+  </g>
+</svg>

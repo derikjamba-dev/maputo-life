@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000">
+  <rect width="1000" height="1000" fill="#f6f5f1"/>
+  <g fill="none" stroke="#2f2f2f" stroke-linecap="round" stroke-linejoin="round" stroke-width="4">
+    <path d="M100 760h800"/>
+    <path d="M100 680c100-70 140-110 190-140s120-40 220-20 180 90 290 60"/>
+    <path d="M180 760V420h460v340"/>
+    <path d="M250 420V300h320v120M300 500h240M300 600h240M300 700h240"/>
+    <path d="M440 300l40-80 40 80M410 480h180M540 420v100M460 420v100"/>
+    <path d="M620 760V510h70v250M700 760V560h90v200"/>
+    <path d="M740 470c40-40 90-70 130-60M600 430c30-35 70-55 130-40"/>
+  </g>
+  <g fill="#2f2f2f" font-family="Georgia, serif" font-size="30">
+    <text x="500" y="965" text-anchor="middle">Costa do Sol</text>
+  </g>
+</svg>

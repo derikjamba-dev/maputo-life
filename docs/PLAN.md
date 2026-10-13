@@ -37,3 +37,12 @@
 
 ## Step 7: Build & test ✅
 - npm run dev/build (tsc + eslint + next build all pass)
+- npm run test (Vitest unit tests for game rules, player movement, and save data)
+
+## Step 8: Quality hardening (in progress)
+- ✅ NPC proximity ring now follows each NPC
+- ✅ Save data is validated/normalized before load and storage
+- ✅ README documents controls and project layout
+- ⬜ Sound (marrabenta/chapa ambience, SFX)
+- ⬜ Interiors for enterable landmarks
+- ⬜ Settings and inventory menus

@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000">
+  <rect width="1000" height="1000" fill="#f6f5f1"/>
+  <g fill="none" stroke="#2f2f2f" stroke-linecap="round" stroke-linejoin="round" stroke-width="4">
+    <rect x="250" y="260" width="500" height="440" rx="20"/>
+    <rect x="310" y="320" width="380" height="320" rx="12"/>
+    <path d="M350 260V150h300v110M350 520h300M360 360h60M420 360h60M480 360h60M540 360h60M360 460h60M420 460h60M480 460h60M540 460h60M360 560h60M420 560h60M480 560h60M540 560h60"/>
+    <path d="M765 680l-60-420h-50l-60 420"/>
+    <path d="M235 680l60-420h50l60 420"/>
+    <path d="M410 150v-60h180v60M430 260V180h140v80"/>
+    <path d="M420 700h160"/>
+    <circle cx="500" cy="700" r="30"/>
+    <path d="M470 700h60M500 670v60"/>
+  </g>
+  <g fill="#2f2f2f" font-family="Georgia, serif" font-size="30">
+    <text x="500" y="965" text-anchor="middle">CFM Station</text>
+  </g>
+</svg>

@@ -1,7 +1,8 @@
 "use client";
 
-import { Canvas, useFrame, useThree } from "@react-three/fiber";
+import { Canvas, useFrame, useLoader, useThree } from "@react-three/fiber";
 import { OrbitControls, OrthographicCamera, useGLTF } from "@react-three/drei";
+import { SVGLoader } from "three/addons/loaders/SVGLoader.js";
 import {
   Suspense,
   useEffect,
@@ -35,7 +36,7 @@ import { PALETTE, SKY } from "@/lib/three/palette";
 import { Variant } from "@/components/game/ModelVariant";
 import { nearestNpc, TALK_RADIUS } from "@/lib/npcs";
 import { setMoveTarget } from "@/lib/player";
-import { buildingAt, CITY } from "@/lib/world";
+import { CATEGORY_COLORS, buildingAt, CITY } from "@/lib/world";
 import type { CharacterLook, GameRuntime } from "@/types/game";
 import type { Building, Prop } from "@/types/world";
 
@@ -155,6 +156,121 @@ function BuildingVariant({ path, buildings }: { path: string; buildings: Buildin
   return (
     <Suspense fallback={null}>
       <Variant path={path} matrices={matrices} />
+    </Suspense>
+  );
+}
+
+function CustomBuildings() {
+  const landmarks = useMemo(
+    () => CITY.buildings.filter((b) => b.massing && b.massing.length),
+    [],
+  );
+  return (
+    <>
+      {landmarks.map((b) => (
+        <group key={b.id}>
+          {b.massing!.map((block, i) => (
+            <group key={i}>
+              <mesh
+                position={[
+                  toX(block.x + block.w / 2),
+                  block.height / 2,
+                  toZ(block.y + block.h / 2),
+                ]}
+                castShadow
+                receiveShadow
+              >
+                <boxGeometry args={[block.w, block.height, block.h]} />
+                <meshStandardMaterial
+                  color={CATEGORY_COLORS[b.type]}
+                  roughness={0.78}
+                  metalness={0.05}
+                />
+              </mesh>
+              <mesh
+                position={[
+                  toX(block.x + block.w / 2),
+                  block.height + 4,
+                  toZ(block.y + block.h / 2),
+                ]}
+                receiveShadow
+              >
+                <boxGeometry args={[block.w + 4, 8, block.h + 4]} />
+                <meshStandardMaterial
+                  color="#6f675e"
+                  roughness={0.9}
+                  metalness={0.02}
+                />
+              </mesh>
+            </group>
+          ))}
+        </group>
+      ))}
+    </>
+  );
+}
+
+const REFERENCE_SVG: Record<string, string> = {
+  independencia: "/refs/sketch_1_praca_da_independencia.svg",
+  railway: "/refs/sketch_2_cfm_station.svg",
+  fortaleza: "/refs/sketch_3_fortaleza.svg",
+  mercado: "/refs/sketch_4_mercado_central.svg",
+  tunduru: "/refs/sketch_5_tunduru_gardens.svg",
+  feima: "/refs/sketch_6_feima.svg",
+  "costa-do-sol": "/refs/sketch_7_costa_do_sol.svg",
+  "natural-history": "/refs/sketch_8_natural_history_museum.svg",
+  baixa: "/refs/sketch_9_baixa_polana_sommerschield.svg",
+  polana: "/refs/sketch_9_baixa_polana_sommerschield.svg",
+  sommerschield: "/refs/sketch_9_baixa_polana_sommerschield.svg",
+};
+
+function ReferenceCard({ b }: { b: Building }) {
+  const svg = (b.locationId && REFERENCE_SVG[b.locationId]) || null;
+  if (!svg) return null;
+  const data = useLoader(SVGLoader, svg);
+  const top = Math.max(...(b.massing?.map((m) => m.height) ?? [120]));
+  const meshes = useMemo(() => {
+    const out: { geometry: THREE.ExtrudeGeometry; color: string }[] = [];
+    for (const path of data.paths) {
+      const color = CATEGORY_COLORS[b.type];
+      const shapes = path.toShapes();
+      for (const shape of shapes) {
+        const geometry = new THREE.ExtrudeGeometry(shape, {
+          depth: 8,
+          bevelEnabled: false,
+        });
+        out.push({ geometry, color });
+      }
+    }
+    return out;
+  }, [data]);
+
+  // The SVG is 1000x1000; scale it to the landmark footprint.
+  const scale = Math.min(b.w / 1000, b.h / 1000) * 1.05;
+  return (
+    <group
+      position={[toX(b.x + b.w / 2), top + 12, toZ(b.y + b.h / 2)]}
+      scale={[scale, -scale, scale]}
+    >
+      {meshes.map((m, i) => (
+        <mesh key={i} geometry={m.geometry} castShadow receiveShadow>
+          <meshStandardMaterial color={m.color} roughness={0.85} metalness={0.02} />
+        </mesh>
+      ))}
+    </group>
+  );
+}
+
+function ReferenceCards() {
+  const landmarks = useMemo(
+    () => CITY.buildings.filter((b) => b.locationId && REFERENCE_SVG[b.locationId]),
+    [],
+  );
+  return (
+    <Suspense fallback={null}>
+      {landmarks.map((b) => (
+        <ReferenceCard key={b.id} b={b} />
+      ))}
     </Suspense>
   );
 }
@@ -566,6 +682,7 @@ function Npc({ runtime, index }: { runtime: RefObject<GameRuntime>; index: numbe
     }
     if (ring.current) {
       const d = Math.hypot(st.pos.x - g.pos.x, st.pos.y - g.pos.y);
+      ring.current.position.set(px, 0.06, pz);
       ring.current.visible = d < TALK_RADIUS * 1.4;
     }
   });
@@ -687,6 +804,8 @@ export default function Map3D({ runtime, look, onFrame, onEnter, onTalk }: Map3D
         <Districts />
         <Water />
         <Roads />
+        <CustomBuildings />
+        <ReferenceCards />
         <Buildings />
         <Props />
         <Labels />

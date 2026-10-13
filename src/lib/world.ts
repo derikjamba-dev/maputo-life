@@ -129,6 +129,66 @@ export const BUILDINGS: Building[] = [
   makeBuilding("work-k", "Hotel Panorama", "work", 1160, 1180, 110, 80),
 ];
 
+// Approximate 3D massings for the iconic landmark buildings.
+// These are block-based stand-ins derived from the reference sketches;
+// tweak block coordinates/sizes to refine each building's silhouette.
+const LANDMARK_MASSING: Record<string, Array<{ x: number; y: number; w: number; h: number; height: number }>> = {
+  "loc-cathedral": [
+    { x: 480, y: 340, w: 120, h: 90, height: 180 },
+    { x: 560, y: 340, w: 40, h: 40, height: 270 },
+  ],
+  "loc-independencia": [
+    { x: 480, y: 780, w: 120, h: 90, height: 70 },
+    { x: 510, y: 795, w: 60, h: 60, height: 140 },
+  ],
+  "loc-mercado": [
+    { x: 720, y: 340, w: 150, h: 90, height: 85 },
+    { x: 745, y: 355, w: 100, h: 60, height: 125 },
+  ],
+  "loc-sommerschield": [
+    { x: 1160, y: 340, w: 150, h: 90, height: 150 },
+    { x: 1185, y: 360, w: 100, h: 50, height: 200 },
+  ],
+  "loc-feima": [
+    { x: 1400, y: 340, w: 150, h: 100, height: 55 },
+    { x: 1420, y: 360, w: 110, h: 60, height: 85 },
+  ],
+  "loc-costa-do-sol": [
+    { x: 1560, y: 150, w: 130, h: 100, height: 50 },
+    { x: 1575, y: 165, w: 100, h: 70, height: 82 },
+  ],
+  "loc-natural-history": [
+    { x: 1160, y: 800, w: 150, h: 90, height: 160 },
+    { x: 1175, y: 810, w: 45, h: 45, height: 220 },
+    { x: 1240, y: 810, w: 45, h: 45, height: 220 },
+  ],
+  "loc-polana": [
+    { x: 1400, y: 800, w: 150, h: 90, height: 210 },
+  ],
+  "loc-tunduru": [
+    { x: 480, y: 1160, w: 120, h: 110, height: 45 },
+    { x: 495, y: 1175, w: 90, h: 80, height: 90 },
+  ],
+  "loc-railway": [
+    { x: 700, y: 1160, w: 160, h: 110, height: 95 },
+    { x: 715, y: 1160, w: 48, h: 48, height: 210 },
+  ],
+  "loc-fortaleza": [
+    { x: 1560, y: 1160, w: 130, h: 20, height: 55 },
+    { x: 1560, y: 1250, w: 130, h: 20, height: 55 },
+    { x: 1560, y: 1160, w: 20, h: 110, height: 55 },
+    { x: 1670, y: 1160, w: 20, h: 110, height: 55 },
+    { x: 1585, y: 1185, w: 80, h: 60, height: 95 },
+  ],
+  "loc-baixa": [
+    { x: 700, y: 800, w: 140, h: 90, height: 135 },
+  ],
+};
+for (const b of BUILDINGS) {
+  const massing = LANDMARK_MASSING[b.id];
+  if (massing) b.massing = massing;
+}
+
 // Grid used for the road network and city blocks.
 export const GRID_X = [200, 440, 620, 920, 1120, 1320, 1700, 1800];
 export const GRID_Y = [120, 300, 520, 730, 900, 1080, 1320];

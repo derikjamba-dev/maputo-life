@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000">
+  <rect width="1000" height="1000" fill="#f6f5f1"/>
+  <g fill="none" stroke="#2f2f2f" stroke-linecap="round" stroke-linejoin="round" stroke-width="4">
+    <path d="M220 760V310h560v450"/>
+    <path d="M280 310V180h440v130M260 760h480M300 760V520h80v240M420 760V430h80v330M540 760V520h80v240"/>
+    <path d="M290 430h420M290 520h420M290 610h420"/>
+    <path d="M220 310l60-60h560l60 60"/>
+    <path d="M330 210v-65M670 210v-65M350 760v80M650 760v80"/>
+    <circle cx="500" cy="250" r="40"/>
+    <path d="M470 210h60M500 180v60"/>
+  </g>
+  <g fill="#2f2f2f" font-family="Georgia, serif" font-size="30">
+    <text x="500" y="960" text-anchor="middle">Mercado Central</text>
+  </g>
+</svg>

@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000">
+  <rect width="1000" height="1000" fill="#f6f5f1"/>
+  <g fill="none" stroke="#2f2f2f" stroke-linecap="round" stroke-linejoin="round" stroke-width="4">
+    <path d="M220 760h560M340 760V430h320v330"/>
+    <path d="M220 430l80-140h400l80 140"/>
+    <path d="M420 430v-80h160v80M420 520h160M420 600h160M420 680h160"/>
+    <path d="M500 260v-90M470 200h60M420 180l80-60 80 60"/>
+    <path d="M220 760L300 620M780 760L700 620"/>
+    <path d="M300 760l90-90M700 760l-90-90"/>
+    <circle cx="300" cy="820" r="30"/>
+    <circle cx="700" cy="820" r="30"/>
+  </g>
+  <g fill="#2f2f2f" font-family="Georgia, serif" font-size="24">
+    <text x="500" y="965" text-anchor="middle">Baixa Polana Sommerschield</text>
+  </g>
+</svg>

@@ -110,7 +110,7 @@ export default function ActionPanel({
         <div className="mb-2 text-[10px] font-semibold uppercase tracking-widest text-amber-400/80">
           Caderno
         </div>
-        <ul className="flex flex-col gap-1.5">
+        <ul className="flex flex-col gap-1.5" aria-live="polite" aria-atomic="true">
           {log.length === 0 && (
             <li className="text-xs text-white/40">Sem novidades ainda…</li>
           )}

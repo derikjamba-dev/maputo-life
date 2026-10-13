@@ -56,6 +56,8 @@ export function roadStrips(): RoadStrip[] {
 export function groupBuildings(): Map<string, Building[]> {
   const map = new Map<string, Building[]>();
   for (const b of CITY.buildings) {
+    // Landmarks with authored massings are rendered by CustomBuildings instead.
+    if (b.massing && b.massing.length) continue;
     const path = buildingModelPath(b);
     let list = map.get(path);
     if (!list) {

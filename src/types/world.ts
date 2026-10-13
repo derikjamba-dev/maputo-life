@@ -7,6 +7,14 @@ export interface WorldPoint {
 
 export type BuildingType = "home" | "food" | "club" | "transport" | "work";
 
+export interface MassingBlock {
+  x: number;
+  y: number;
+  w: number;
+  h: number;
+  height: number;
+}
+
 export interface Building {
   id: string;
   name: string;
@@ -19,6 +27,7 @@ export interface Building {
   enterable: boolean;
   label: boolean;
   locationId?: LocationId;
+  massing?: MassingBlock[];
 }
 
 export interface Road {

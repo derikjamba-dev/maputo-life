@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000">
+  <rect width="1000" height="1000" fill="#f6f5f1"/>
+  <g fill="none" stroke="#2f2f2f" stroke-linecap="round" stroke-linejoin="round" stroke-width="4">
+    <path d="M250 700h500l-60-420H310z"/>
+    <path d="M350 650V420h300v230M295 446h410M410 350h180M430 350V260h140v90"/>
+    <path d="M450 710V800M550 710V800M500 245v-70"/>
+    <path d="M370 260l130-60 130 60"/>
+    <path d="M345 520h30M625 520h30M420 570h160"/>
+    <path d="M480 420l20-40 20 40"/>
+  </g>
+  <g fill="#2f2f2f" font-family="Georgia, serif" font-size="30">
+    <text x="500" y="950" text-anchor="middle">Fortaleza</text>
+  </g>
+</svg>
